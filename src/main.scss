@@ -6,6 +6,7 @@
   --font-family-base: 'Inter';
 
   --border-radius: 6px;
+  --border: 1px solid #e4e7eb;
 
   --container-padding-x: 16px;
 
@@ -15,7 +16,7 @@
 
 body {
   font-family: var(--font-family-base), sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   background-color: #f6f8fA;
   color: #1a1f36;
 }
