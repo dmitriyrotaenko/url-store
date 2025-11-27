@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Input from '../Input';
 
 import './AddUrlForm.scss';
+import type * as React from 'react';
+import Select from '../Select';
 
 type AddUrlFormProps = {
 	onSubmit: (url: string) => void;
@@ -11,6 +13,7 @@ const AddUrlForm = (props: AddUrlFormProps) => {
 	const { onSubmit } = props;
 
 	const [value, setValue] = useState('');
+	const [category, setCategory] = useState('Personal');
 
 	function handleSubmit(e: React.FormEvent) {
 		e.preventDefault();
@@ -35,6 +38,10 @@ const AddUrlForm = (props: AddUrlFormProps) => {
 				value={value}
 				onChange={(e) => setValue(e.target.value)}
 				placeholder="For example, https://doodles.google/"
+			/>
+			<Select
+				options={[{ value: 'Uncategorized', isSelected: true }, { value: 'Work' }, { value: 'Shopping' }]}
+				onSelect={(option) => setCategory(option)}
 			/>
 		</form>
 	);

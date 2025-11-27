@@ -13,7 +13,7 @@ const Input = (props: InputProps) => {
 
 	return (
 		<input
-			className={`input ${className || ''}`}
+			className={`input ${className ?? ''}`}
 			type={type}
 			value={value}
 			onChange={onChange}

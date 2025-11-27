@@ -2,6 +2,7 @@
 
 :root {
   --accent-color: #06f;
+  --background-on-hover: #f6f8fa;
 
   --font-family-base: 'Inter';
 
@@ -17,7 +18,7 @@
 body {
   font-family: var(--font-family-base), sans-serif;
   font-size: 16px;
-  background-color: #f6f8fA;
+  background-color: var(--background-on-hover);
   color: #1a1f36;
 }
 

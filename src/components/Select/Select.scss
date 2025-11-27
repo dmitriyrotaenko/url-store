@@ -1,0 +1,108 @@
+.select {
+	--select-arrow-icon-url: url("/src/assets/icons/arrow-down.svg");
+	--select-arrow-icon-size: 16px;
+	--select-arrow-gap-x: 24px;
+	--select-arrow-padding-x: 12px;
+
+	flex-shrink: 0;
+
+	&__original-control {
+		appearance: none; // Hides default arrow
+		border: var(--border);
+		border-radius: var(--border-radius);
+		padding-left: var(--select-arrow-padding-x);
+		padding-right: calc(
+			var(--select-arrow-icon-size) 
+			+ var(--select-arrow-padding-x) 
+			+ var(--select-arrow-gap-x)
+		);
+		background-image: var(--select-arrow-icon-url);
+		background-position: calc(100% - var(--select-arrow-padding-x)) 50%;
+		background-size: var(--select-arrow-icon-size);
+		background-repeat: no-repeat;
+	}
+
+	&__body {
+		position: relative;
+	}
+
+	&__button {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: var(--select-arrow-gap-x);
+		padding: var(--select-arrow-padding-x);
+		transition-duration: 200ms;
+		border: var(--border);
+		border-radius: var(--border-radius);
+
+		&::after {
+			width: var(--select-arrow-icon-size);
+			height: var(--select-arrow-icon-size);
+			content: "";
+			background: var(--select-arrow-icon-url) center / contain no-repeat;
+			transition-duration: inherit;
+		}
+
+		&.is-expanded {
+			&::after {
+				rotate: 180deg;
+			}
+		}
+	}
+
+	&__button,
+	&__option {
+		user-select: none;
+		cursor: pointer;
+	}
+
+	&__dropdown {
+		border: var(--border);
+		position: absolute;
+		top: calc(100% + 4px);
+		background-color: #fff;
+		border-radius: var(--border-radius);
+		display: grid;
+		row-gap: 4px;
+		min-width: 300px;
+		max-height: 250px;
+		overflow-y: auto;
+		overscroll-behavior: none;
+		padding: 4px;
+		transition-duration: 200ms;
+
+		&.is-on-the-right-side {
+			right: 0;
+			transform-origin: 100% 0;
+		}
+
+		&.is-on-the-left-side {
+			left: 0;
+			transform-origin: 0 0;
+		}
+
+		&:not(.is-expanded) {
+			scale: 0;
+		}
+	}
+
+	&__list {
+		list-style: none;
+		padding: 0;
+		border-radius: inherit;
+	}
+
+	&__option {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px;
+		column-gap: 10px;
+		border-radius: inherit;
+
+		&:hover {
+			background-color: var(--background-on-hover);
+		}
+	}
+}
